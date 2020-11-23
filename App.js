@@ -11,37 +11,40 @@ import {
   StyleSheet,
   View,
   Text,
-  Dimensions
+  Dimensions,
+  StatusBar,
+
 } from 'react-native';
 
 /** Device Height */
 const windowHeight = Dimensions.get('window').height;
 
 /** Black square inside the upper container */
-function BlackSquare(){
-  return <View style={styles.blackSquare}/>
+function BlackSquare() {
+  return <View style={styles.blackSquare} />
 }
 
 
-const App = () =>{
-  return(
-<>  
+const App = () => {
+  return (
+    <>
+      <StatusBar barStyle='light-content' />
       {/* Main outside container */}
       <View style={styles.mainContainer}>
-      {/* inside middle container */}
+        {/* inside middle container */}
         <View style={styles.insideContainer}>
-      {/* inside middle upper container background one container */}
+          {/* inside middle upper container background one container */}
           <View style={styles.upperHalfOutsideContainer}>
-      {/* inside middle upper container main one container */}
+            {/* inside middle upper container main one container */}
             <View style={styles.upperHalfInsideContainer}>
-              <BlackSquare/>
+              <BlackSquare />
               <Text style={styles.textStyle}>{'Name'}</Text>
-              <BlackSquare/>
+              <BlackSquare />
             </View>
           </View>
-      {/* inside middle lower container background one container */}
+          {/* inside middle lower container background one container */}
           <View style={styles.lowerHalfOutsideContainer}>
-      {/* inside middle lower container main one container */}
+            {/* inside middle lower container main one container */}
             <View style={styles.lowerHalfInsideContainer}>
               <Text style={styles.textStyle}>{'Balance'}</Text>
             </View>
@@ -64,11 +67,11 @@ const styles = StyleSheet.create({
     height: windowHeight * 0.3,
     width: windowHeight * 0.3
   },
-  blackSquare:{
-    height:  windowHeight * 0.05, 
-    width:  windowHeight * 0.05, 
-    borderRadius: 5, 
-    backgroundColor: '#0F1C23', 
+  blackSquare: {
+    height: windowHeight * 0.05,
+    width: windowHeight * 0.05,
+    borderRadius: 5,
+    backgroundColor: '#0F1C23',
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -78,40 +81,40 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5,
   },
-  upperHalfOutsideContainer:{
+  upperHalfOutsideContainer: {
     backgroundColor: '#F4F5FB',
     height: '50%',
-    borderTopRightRadius:30, 
-    borderTopLeftRadius:30,
+    borderTopRightRadius: 30,
+    borderTopLeftRadius: 30,
   },
-  upperHalfInsideContainer:{
-    backgroundColor: '#fff', 
+  upperHalfInsideContainer: {
+    backgroundColor: '#fff',
     height: '100%',
-    borderTopRightRadius:windowHeight * 0.04, 
-    borderTopLeftRadius:windowHeight * 0.04,
-    borderBottomLeftRadius: windowHeight * 0.04, 
-    flexDirection: 'row', 
-    paddingHorizontal: '5%', 
-    alignItems: 'center', 
+    borderTopRightRadius: windowHeight * 0.04,
+    borderTopLeftRadius: windowHeight * 0.04,
+    borderBottomLeftRadius: windowHeight * 0.04,
+    flexDirection: 'row',
+    paddingHorizontal: '5%',
+    alignItems: 'center',
     justifyContent: 'space-between'
   },
-  lowerHalfInsideContainer:{
-    backgroundColor: '#F4F5FB', 
+  lowerHalfInsideContainer: {
+    backgroundColor: '#F4F5FB',
     height: '100%',
-    borderBottomRightRadius:windowHeight * 0.04, 
-    borderBottomLeftRadius:windowHeight * 0.04, 
-    borderTopRightRadius: windowHeight * 0.04, 
-    justifyContent: 'center', 
+    borderBottomRightRadius: windowHeight * 0.04,
+    borderBottomLeftRadius: windowHeight * 0.04,
+    borderTopRightRadius: windowHeight * 0.04,
+    justifyContent: 'center',
     alignItems: 'center'
   },
-  lowerHalfOutsideContainer:{
-    backgroundColor: '#fff', 
+  lowerHalfOutsideContainer: {
+    backgroundColor: '#fff',
     height: '50%',
-    borderBottomRightRadius:windowHeight * 0.04, 
-    borderBottomLeftRadius:windowHeight * 0.04,
+    borderBottomRightRadius: windowHeight * 0.04,
+    borderBottomLeftRadius: windowHeight * 0.04,
   },
-  textStyle:{
-    fontSize:16
+  textStyle: {
+    fontSize: 16
   }
 });
 
