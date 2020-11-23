@@ -8,107 +8,111 @@
 
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
   View,
   Text,
-  StatusBar,
+  Dimensions
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+/** Device Height */
+const windowHeight = Dimensions.get('window').height;
 
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+/** Black square inside the upper container */
+function BlackSquare(){
+  return <View style={styles.blackSquare}/>
+}
+
+
+const App = () =>{
+  return(
+<>  
+      {/* Main outside container */}
+      <View style={styles.mainContainer}>
+      {/* inside middle container */}
+        <View style={styles.insideContainer}>
+      {/* inside middle upper container background one container */}
+          <View style={styles.upperHalfOutsideContainer}>
+      {/* inside middle upper container main one container */}
+            <View style={styles.upperHalfInsideContainer}>
+              <BlackSquare/>
+              <Text style={styles.textStyle}>{'Name'}</Text>
+              <BlackSquare/>
             </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
           </View>
-        </ScrollView>
-      </SafeAreaView>
+      {/* inside middle lower container background one container */}
+          <View style={styles.lowerHalfOutsideContainer}>
+      {/* inside middle lower container main one container */}
+            <View style={styles.lowerHalfInsideContainer}>
+              <Text style={styles.textStyle}>{'Balance'}</Text>
+            </View>
+          </View>
+        </View>
+      </View>
     </>
-  );
-};
+  )
+}
+
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  mainContainer: {
+    flex: 1,
+    backgroundColor: '#0F1C23',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  insideContainer: {
+    height: windowHeight * 0.3,
+    width: windowHeight * 0.3
   },
-  body: {
-    backgroundColor: Colors.white,
+  blackSquare:{
+    height:  windowHeight * 0.05, 
+    width:  windowHeight * 0.05, 
+    borderRadius: 5, 
+    backgroundColor: '#0F1C23', 
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  upperHalfOutsideContainer:{
+    backgroundColor: '#F4F5FB',
+    height: '50%',
+    borderTopRightRadius:30, 
+    borderTopLeftRadius:30,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
+  upperHalfInsideContainer:{
+    backgroundColor: '#fff', 
+    height: '100%',
+    borderTopRightRadius:windowHeight * 0.04, 
+    borderTopLeftRadius:windowHeight * 0.04,
+    borderBottomLeftRadius: windowHeight * 0.04, 
+    flexDirection: 'row', 
+    paddingHorizontal: '5%', 
+    alignItems: 'center', 
+    justifyContent: 'space-between'
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
+  lowerHalfInsideContainer:{
+    backgroundColor: '#F4F5FB', 
+    height: '100%',
+    borderBottomRightRadius:windowHeight * 0.04, 
+    borderBottomLeftRadius:windowHeight * 0.04, 
+    borderTopRightRadius: windowHeight * 0.04, 
+    justifyContent: 'center', 
+    alignItems: 'center'
   },
-  highlight: {
-    fontWeight: '700',
+  lowerHalfOutsideContainer:{
+    backgroundColor: '#fff', 
+    height: '50%',
+    borderBottomRightRadius:windowHeight * 0.04, 
+    borderBottomLeftRadius:windowHeight * 0.04,
   },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+  textStyle:{
+    fontSize:16
+  }
 });
 
 export default App;
