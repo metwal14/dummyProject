@@ -15,7 +15,7 @@ import {
   StatusBar,
 
 } from 'react-native';
-
+import Personality from './Personality';
 /** Device Height */
 const windowHeight = Dimensions.get('window').height;
 
@@ -28,29 +28,7 @@ function BlackSquare() {
 const App = () => {
   return (
     <>
-      <StatusBar barStyle='light-content' />
-      {/* Main outside container */}
-      <View style={styles.mainContainer}>
-        {/* inside middle container */}
-        <View style={styles.insideContainer}>
-          {/* inside middle upper container background one container */}
-          <View style={styles.upperHalfOutsideContainer}>
-            {/* inside middle upper container main one container */}
-            <View style={styles.upperHalfInsideContainer}>
-              <BlackSquare />
-              <Text style={styles.textStyle}>{'Name'}</Text>
-              <BlackSquare />
-            </View>
-          </View>
-          {/* inside middle lower container background one container */}
-          <View style={styles.lowerHalfOutsideContainer}>
-            {/* inside middle lower container main one container */}
-            <View style={styles.lowerHalfInsideContainer}>
-              <Text style={styles.textStyle}>{'Balance'}</Text>
-            </View>
-          </View>
-        </View>
-      </View>
+      <Personality/>
     </>
   )
 }
@@ -65,7 +43,8 @@ const styles = StyleSheet.create({
   },
   insideContainer: {
     height: windowHeight * 0.3,
-    width: windowHeight * 0.3
+    width: '100%',
+    paddingHorizontal:'5%'
   },
   blackSquare: {
     height: windowHeight * 0.05,
