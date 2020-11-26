@@ -16,6 +16,8 @@ import {
 
 } from 'react-native';
 import Settings from './Settings';
+import ProfileContainer from './ProfileContainer';
+
 /** Device Height */
 const windowHeight = Dimensions.get('window').height;
 
@@ -28,7 +30,8 @@ function BlackSquare() {
 const App = () => {
   return (
     <View style={styles.mainContainer}>
-      <Settings />
+      {/* <Settings /> */}
+      <ProfileContainer/>
     </View>
 
   )
@@ -38,7 +41,7 @@ const App = () => {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor:'grey'
+    backgroundColor:'#FAFAFA'
   },
 
 });
