@@ -7,7 +7,7 @@ const Container = (props) => {
             <StatusBar
                 translucent={true}
                 backgroundColor="transparent"
-                barStyle='light-content'
+                barStyle='dark-content'
             />
             {props.children}
         </View>
