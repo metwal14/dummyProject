@@ -17,6 +17,8 @@ import {
 } from 'react-native';
 import Settings from './Settings';
 import ProfileContainer from './ProfileContainer';
+import FilterScreen from './filterScreen';
+
 
 /** Device Height */
 const windowHeight = Dimensions.get('window').height;
@@ -31,7 +33,8 @@ const App = () => {
   return (
     <View style={styles.mainContainer}>
       {/* <Settings /> */}
-      <ProfileContainer/>
+      {/* <ProfileContainer/> */}
+      <FilterScreen/>
     </View>
 
   )

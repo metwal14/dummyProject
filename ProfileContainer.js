@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
         flexDirection: 'row',
+        
     },
     centerConatinerImage: {
         marginHorizontal: '3%'
