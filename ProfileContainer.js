@@ -13,12 +13,11 @@ const ProfileContainer = () => {
         setIsLoading(true);
         console.log('add');
     }
-    const renderImageBoxEmpty = useMemo(() => <ImageBox isLoading={isLoading} />, [isLoading]); // to render the thumb of the slider
+    const renderImageBoxEmpty = useMemo(() => <ImageBox isLoading={isLoading} />, [isLoading]);
     const renderImageBoxImage = useMemo(() => <ImageBox imageStyle={styles.profileImageStyle}
         imageUrl={'https://unsplash.it/400/400?image=1'}
         onDelete={onDeleteBtn} />, []);
 
-    // const add = useMemo(()=>onAddPhotos, [isLoading]);
 
     return (
         <View style={styles.mainContainer}>

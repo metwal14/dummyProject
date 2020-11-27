@@ -11,13 +11,6 @@ import FastImage from 'react-native-fast-image'
 
 const windowHeight = Dimensions.get('window').height;
 
-const Greeting =
-//  React.memo(
-     props => {
-    console.log("Greeting Comp render");
-    return <h1>Hi {props.name}!</h1>;
-  }
-//   );
 
 const ImageBox = (props: { imageStyle: any; onDelete: any; imageUrl: any; isLoading: boolean; }) => {
     const { imageStyle, onDelete, imageUrl,isLoading } = props;
@@ -64,7 +57,6 @@ export default ImageBox;
 
 const styles = StyleSheet.create({
     crossContainer: {
-        // backgroundColor: 'red',
         height: windowHeight * 0.04,
         width: windowHeight * 0.04,
         borderRadius: windowHeight * 0.04,
