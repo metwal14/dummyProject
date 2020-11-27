@@ -33,8 +33,8 @@ const App = () => {
   return (
     <View style={styles.mainContainer}>
       {/* <Settings /> */}
-      {/* <ProfileContainer/> */}
-      <FilterScreen/>
+      <ProfileContainer/>
+      {/* <FilterScreen/> */}
     </View>
 
   )

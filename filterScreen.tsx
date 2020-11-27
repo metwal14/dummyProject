@@ -23,6 +23,7 @@ const FilterScreen = () => {
                     imageLeft={LeftArrow}
                     textCenter='Looking For'
                 />
+                {/* body part*/}
                 <View style={styles.genderPersonalityContainer}>
                     <View styles={{ flex: 1 }}>
                         <Text>Gender</Text>

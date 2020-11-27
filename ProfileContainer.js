@@ -1,20 +1,32 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { View, Text, Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
 import Container from './Container';
 import ImageBox from './ImageBox';
 const windowWidth = Dimensions.get('window').width;
 
 const ProfileContainer = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const onDeleteBtn = () => {
         console.log('delete');
     }
+    const onAddPhotos = () => {
+        setIsLoading(true);
+        console.log('add');
+    }
+    const renderImageBoxEmpty = useMemo(() => <ImageBox isLoading={isLoading} />, [isLoading]); // to render the thumb of the slider
+    const renderImageBoxImage = useMemo(() => <ImageBox imageStyle={styles.profileImageStyle}
+        imageUrl={'https://unsplash.it/400/400?image=1'}
+        onDelete={onDeleteBtn} />, []);
+
+    // const add = useMemo(()=>onAddPhotos, [isLoading]);
+
     return (
         <View style={styles.mainContainer}>
             <View style={styles.addPhotoContainer}>
                 <Container style={styles.customContainerStyle}>
                     <TouchableOpacity
                         activeOpacity={0.8}
-                        onPress={() => console.log('add')}
+                        onPress={onAddPhotos}
                     >
                         <Text style={styles.plusText}>+</Text>
                     </TouchableOpacity>
@@ -22,36 +34,24 @@ const ProfileContainer = () => {
                 </Container>
                 <View style={styles.centerConatinerImage}>
                     <Container style={styles.customContainerStyle}>
-                        <ImageBox />
+                        {renderImageBoxEmpty}
                     </Container>
                 </View>
                 <Container style={styles.customContainerStyle}>
-                    <ImageBox />
+                    {renderImageBoxEmpty}
                 </Container>
             </View>
             <View style={styles.imageContainer}>
                 <Container styles={styles.customContainerStyle}>
-                    <ImageBox
-                        imageStyle={styles.profileImageStyle}
-                        imageUrl={'https://unsplash.it/400/400?image=1'}
-                        onDelete={onDeleteBtn}
-                    />
+                    {renderImageBoxImage}
                 </Container>
                 <View style={styles.centerConatinerImage}>
                     <Container styles={styles.customContainerStyle}>
-                        <ImageBox
-                            imageStyle={styles.profileImageStyle}
-                            imageUrl={'https://unsplash.it/400/400?image=1'}
-                            onDelete={onDeleteBtn}
-                        />
+                        {renderImageBoxImage}
                     </Container>
                 </View>
                 <Container styles={styles.customContainerStyle}>
-                    <ImageBox
-                        imageStyle={styles.profileImageStyle}
-                        imageUrl={'https://unsplash.it/400/400?image=1'}
-                        onDelete={onDeleteBtn}
-                    />
+                    {renderImageBoxImage}
                 </Container>
             </View>
         </View>
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
         flexDirection: 'row',
-        
+
     },
     centerConatinerImage: {
         marginHorizontal: '3%'

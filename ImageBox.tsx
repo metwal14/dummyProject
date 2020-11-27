@@ -4,21 +4,41 @@ import {
     Text,
     Dimensions,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    ActivityIndicator
 } from 'react-native';
 import FastImage from 'react-native-fast-image'
 
 const windowHeight = Dimensions.get('window').height;
 
-const ImageBox = (props: { imageStyle: any; onDelete: any; imageUrl: any; }) => {
-    const { imageStyle, onDelete, imageUrl } = props;
+const Greeting =
+//  React.memo(
+     props => {
+    console.log("Greeting Comp render");
+    return <h1>Hi {props.name}!</h1>;
+  }
+//   );
+
+const ImageBox = (props: { imageStyle: any; onDelete: any; imageUrl: any; isLoading: boolean; }) => {
+    const { imageStyle, onDelete, imageUrl,isLoading } = props;
+    console.log('calling',imageUrl,isLoading);
+    
+    if(isLoading){
+        return(
+            <View>
+                <ActivityIndicator
+                size='large'
+                />
+            </View>
+        )
+    }
     return (
         <View>
             {
                 imageUrl ?
                     <View>
                         <TouchableOpacity
-                            onPres={onDelete}
+                            onPress={onDelete}
                             activeOpacity={0.8}
                             style={styles.crossContainer}
                         >
